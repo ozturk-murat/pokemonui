@@ -21,6 +21,7 @@ const StyledBox = styled(Box)(({}) => ({
 const ButtonDiscover = styled(Button)(({theme}) => ({
   width: "40rem",
   height: "82px",
+  textAlign: "center",
   padding: "0 50px",
   margin: "0 20px",
   border: "1px solid white",
