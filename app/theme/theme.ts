@@ -22,6 +22,9 @@ const theme = createTheme({
     error: {
       main: red.A400,
     },
+    text:{
+      primary: "#FFFFFF"
+    }
   },
   components: {
     MuiCssBaseline: {
@@ -34,6 +37,9 @@ const theme = createTheme({
   },
   typography: {
     fontFamily: raleway.style.fontFamily,
+    allVariants: {
+      color: "#FFFFFF"
+    }
   },
 });
 

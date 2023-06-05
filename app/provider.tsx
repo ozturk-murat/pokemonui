@@ -1,8 +1,7 @@
-// app/providers.tsx
 "use client";
 
 import { ThemeProvider } from "@emotion/react";
-import theme from "@/theme";
+import theme from "@/app/theme/theme";
 import { CssBaseline } from "@mui/material";
 import { Provider } from "react-redux";
 import store from "./redux/store";

@@ -1,6 +1,6 @@
 import { ThemeProvider } from "@emotion/react";
 import "./globals.css";
-import theme from "@/theme";
+import theme from "@/app/theme/theme";
 import { Providers } from "./provider";
 import Header from "./components/Header";
 
