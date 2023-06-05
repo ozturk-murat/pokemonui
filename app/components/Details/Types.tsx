@@ -1,16 +1,10 @@
 import React from "react";
 import Image from "next/image";
 import { Box, Typography } from "@mui/material";
-
-
-interface Type {
-  type: {
-    name: string;
-  };
-}
+import { PokemonDetails } from "@/type";
 
 interface DetailsTypeProps {
-  types: Type[];
+  types: PokemonDetails["types"];
 }
 
 function Types({ types }: DetailsTypeProps) {
@@ -26,7 +20,7 @@ function Types({ types }: DetailsTypeProps) {
         alignItems={"center"}
         justifyContent={"space-around"}
       >
-        {types?.map((type: any) => (
+        {types?.map((type) => (
           <Box
             key={type.slot}
             display="flex"

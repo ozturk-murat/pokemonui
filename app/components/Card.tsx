@@ -15,14 +15,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { PokemonDetails } from "@/type";
 
-interface Pokemon {
-  name: string;
-  url: string;
-  types: string;
-}
-
 interface CardProps {
-  pokemon: Pokemon;
+  pokemon: PokemonDetails;
 }
 
 const icons = [
@@ -70,7 +64,9 @@ const StyledCard = styled(Card)(({}) => ({
 }));
 
 function PokeCard({ pokemon }: CardProps) {
-  const [pokemonDetails, setPokemonDetails] = useState<PokemonDetails | null>(null);
+  const [pokemonDetails, setPokemonDetails] = useState<PokemonDetails | null>(
+    null
+  );
   const [queryParam, setQueryParam] = useState("pikachu");
 
   useEffect(() => {
@@ -125,8 +121,8 @@ function PokeCard({ pokemon }: CardProps) {
                     alignItems={"center"}
                     justifyContent={"space-around"}
                   >
-                    {
-                      pokemonDetails?.types?.map((type: any) => (
+                    {pokemonDetails?.types?.map(
+                      (type: PokemonDetails["types"][0]) => (
                         <Image
                           key={type.slot}
                           src={`/icons/${type.type.name}.svg`}
@@ -140,8 +136,8 @@ function PokeCard({ pokemon }: CardProps) {
                           priority={false}
                           title={type.type.name}
                         />
-                      ))
-                    }
+                      )
+                    )}
                   </Box>
                 </Box>
               </CardContent>

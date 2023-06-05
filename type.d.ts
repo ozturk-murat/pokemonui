@@ -1,5 +1,6 @@
 export interface PokemonDetails {
   id: number;
+  url: string;
   moves: {
     move: {
       name: string;

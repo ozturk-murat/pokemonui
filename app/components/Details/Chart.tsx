@@ -30,7 +30,7 @@ function PokemonChart({ pokemonDetails }: DetailsProps) {
   const [pokemonStats, setPokemonStats] = useState<number[]>([]);
   useEffect(() => {
     const statsArray = Object.values(pokemonDetails.stats);
-    const extractedStats = statsArray.map((stat: any) => stat.base_stat);
+    const extractedStats = statsArray.map((stat: unknown) => Number((stat as any).base_stat));
     setPokemonStats(extractedStats);
   }, [pokemonDetails]);
 
