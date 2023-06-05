@@ -1,7 +1,5 @@
 # POKEMON UI
-This application is a simple web application that uses the Pokemon API to list Pokemon and display their details on a separate detail page.
-
-Bu uygulama, Pokemon API'yi kullanarak Pokemonları listeleyen ve her bir Pokemon'un ayrıntılarını gösteren bir web uygulamasıdır. 
+This application is a simple web application that uses the Pokemon API to list Pokemon and display their details on a separate detail page. 
 
 ## Features
 
