@@ -31,7 +31,7 @@ const StyleGridItem = styled(Grid)(({}) => ({
   alignItems: "center",
   justifyContent: "center",
   textAlign: "center",
-  padding: 20
+  padding: 20,
 }));
 
 function Details({ pokemonDetails }: DetailsProps) {
@@ -58,18 +58,10 @@ function Details({ pokemonDetails }: DetailsProps) {
               <Typography variant="h4">{pokemonDetails.name}</Typography>
               <Types types={pokemonDetails.types} />
             </StyledItemImage>
-            <StyleGridItem
-              sm={12}
-              md={6}
-              item
-            >
+            <StyleGridItem sm={12} md={6} item>
               <Description name={pokemonDetails.name} />
             </StyleGridItem>
-            <StyleGridItem
-              sm={12}
-              md={6}
-              item
-            >
+            <StyleGridItem sm={12} md={6} item>
               <PokemonChart pokemonDetails={pokemonDetails} />
             </StyleGridItem>
           </GridContainer>

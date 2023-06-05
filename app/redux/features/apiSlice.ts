@@ -1,13 +1,10 @@
 // apiSlice.ts
 
-import { PokemonDetails, PokemonSpecies } from "@/type";
+import { Pokemon, PokemonDetails, PokemonSpecies } from "@/type";
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import axios from "axios";
 
-interface Pokemon {
-  name: string;
-  url: string;
-}
+
 
 interface ApiState {
   pokemons: Pokemon[];
