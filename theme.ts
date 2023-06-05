@@ -1,16 +1,14 @@
 "use client";
-import { Roboto } from "next/font/google";
+import { Raleway } from "next/font/google";
 import { createTheme } from "@mui/material/styles";
 import { red } from "@mui/material/colors";
 
-export const roboto = Roboto({
+export const raleway = Raleway({
   weight: ["300", "400", "500", "700"],
   subsets: ["latin"],
   display: "swap",
   fallback: ["Helvetica", "Arial", "sans-serif"],
 });
-
-const gradientBackground = "linear-gradient(to right, #556cd6, #19857b)";
 
 // Create a theme instance.
 const theme = createTheme({
@@ -19,7 +17,7 @@ const theme = createTheme({
       main: "#556cd6",
     },
     secondary: {
-      main: "#19857b",
+      main: "#440b4f",
     },
     error: {
       main: red.A400,
@@ -29,13 +27,13 @@ const theme = createTheme({
     MuiCssBaseline: {
       styleOverrides: {
         body:{
-            background: "linear-gradient( 102.1deg,  rgba(96,221,142,1) 8.7%, rgba(24,138,141,1) 88.1% ) !important"
+            background: "linear-gradient(to right, #0f0c29, #302b63, #24243e) !important"
         }
       },
     },
   },
   typography: {
-    fontFamily: roboto.style.fontFamily,
+    fontFamily: raleway.style.fontFamily,
   },
 });
 

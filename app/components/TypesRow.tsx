@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import { Box, Button, Grid, styled } from "@mui/material";
+import { Box, Grid, styled } from "@mui/material";
 
 const icons = [
   { id: 1, name: "bug", icon: "bug.svg" },
@@ -23,18 +23,12 @@ const icons = [
   { id: 18, name: "water", icon: "water.svg" },
 ];
 
-const StyledBox = styled(Box)(({}) => ({
-  display: "flex",
-  alignItems: "center",
-}));
-
 const StyledIconDiv = styled("div")`
   ${({ theme }) => `
   display: flex;
   flex-direction: column;
   justify-content: space-arround;
   align-items: center;
-  cursor: pointer !important;
   transition: ${theme.transitions.create(["transform"], {
     duration: theme.transitions.duration.standard,
   })};
@@ -46,9 +40,16 @@ const StyledIconDiv = styled("div")`
 
 function TypesRow() {
   return (
-    <Grid container spacing={{xs:1, md:2}} pt={10} rowSpacing={5}>
+    <Grid container spacing={{ xs: 1, md: 2 }} pt={10} rowSpacing={5}>
       {icons.map((icon) => (
-         <Grid item xs={4} sm={2} key={icon.id} display={"flex"} justifyContent={"center"}>
+        <Grid
+          item
+          xs={4}
+          sm={2}
+          key={icon.id}
+          display={"flex"}
+          justifyContent={"center"}
+        >
           <StyledIconDiv key={icon.id}>
             <Image
               src={`/icons/${icon.icon}`}
@@ -61,9 +62,8 @@ function TypesRow() {
               height={100}
               priority={false}
               title={icon.name}
-              color="red"
             />
-            <h6 style={{marginTop: 5}}>{icon.name}</h6>
+            <h6 style={{ marginTop: 5 }}>{icon.name}</h6>
           </StyledIconDiv>
         </Grid>
       ))}

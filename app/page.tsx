@@ -1,20 +1,24 @@
 "use client";
-import Image from "next/image";
-import { Inter } from "next/font/google";
-import styles from "./page.module.css";
-import { Box, Button, Grid, styled } from "@mui/material";
+import { Box, Button, styled } from "@mui/material";
 import TypesRow from "./components/TypesRow";
-import Link from "next/link";
 
-const inter = Inter({ subsets: ["latin"] });
+const StyledMain = styled(Box)(({}) => ({
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "space-around",
+  alignItems: "center",
+  height: "auto",
+  paddingBottom: "5rem",
+  minHeight: "75vh",
+}));
 
 const StyledBox = styled(Box)(({}) => ({
   width: "100%",
   display: "flex",
-  justifyContent: "center"
+  justifyContent: "center",
 }));
 
-const ButtonDiscover = styled(Button)(({}) => ({
+const ButtonDiscover = styled(Button)(({theme}) => ({
   width: "40rem",
   height: "82px",
   padding: "0 50px",
@@ -22,18 +26,23 @@ const ButtonDiscover = styled(Button)(({}) => ({
   border: "1px solid white",
   borderRadius: "40px",
   fontSize: "1.75rem",
+  fontWeight: "600",
   color: "white",
+  "&:hover" :{
+    color: "#24243e",
+    background: "white"
+  }
 }));
 
 export default function Home() {
   return (
-    <div className={styles.main}>
+    <StyledMain>
       <StyledBox>
-        <Link href={"/pokemon-list"}>
-        <ButtonDiscover>Discover Pokemons</ButtonDiscover>
-        </Link>
+        <ButtonDiscover href={"/pokemon-list"}>
+          Discover Pokemons
+        </ButtonDiscover>
       </StyledBox>
-      <TypesRow/>
-    </div>
+      <TypesRow />
+    </StyledMain>
   );
 }
