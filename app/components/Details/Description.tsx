@@ -49,7 +49,7 @@ function Description({ name }: PokemonNameProps) {
       justifyContent="center"
       alignItems="center"
     >
-      <Typography variant="subtitle1" color={"#fff"}>{summary}</Typography>
+      <Typography variant="h6" color={"#fff"}>{summary}</Typography>
     </Box>
   )
 }

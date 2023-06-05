@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from "react";
-import Image from "next/image";
-import {
-  Box,
-  Grid,
-  Skeleton,
-  Typography,
-  capitalize,
-  styled,
-} from "@mui/material";
+
+//Material-UI
+import Box from "@mui/material/Box";
+import Grid from "@mui/material/Grid";
+import Skeleton from "@mui/material/Skeleton";
+import styled from "@mui/material/styles/styled";
+import Typography from "@mui/material/Typography";
+import { capitalize } from "@mui/material/";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
+
+//Components
 import Link from "next/link";
+import Image from "next/image";
 
 interface Pokemon {
   name: string;
@@ -83,83 +85,74 @@ function PokeCard({ pokemon }: CardProps) {
     fetchPokemonDetails();
   }, [pokemon.url]);
 
-  if (!pokemonDetails /* &&  !pokemon */) {
-    return (
-      <Grid item display={"flex"} justifyContent={"center"}>
-        <Link href={"/pokemon-details"}>
-          <Box height={312}>
-            <StyledCard>
+  return (
+    <Grid item display={"flex"} justifyContent={"center"}>
+      <Link href={`/pokemon-details?name=${queryParam}`}>
+        <Box width={312}>
+          <StyledCard>
+            {pokemonDetails ? (
+              <CardContent>
+                <Typography
+                  variant="h5"
+                  textAlign="center"
+                  fontWeight={600}
+                  color={"white"}
+                >
+                  {capitalize(pokemon.name)}
+                </Typography>
+                <StyledImageDiv>
+                  <StyledImage
+                    //@ts-ignore
+                    src={pokemonDetails.sprites.other.dream_world.front_default}
+                    width={182}
+                    height={138}
+                    alt="Card Image"
+                  />
+                </StyledImageDiv>
+                <Box
+                  display="flex"
+                  justifyContent="center"
+                  sx={{ cursor: "pointer" }}
+                >
+                  <Box
+                    borderRadius={16}
+                    width={75}
+                    border={1}
+                    borderColor={"white"}
+                    p={1}
+                    display={"flex"}
+                    alignItems={"center"}
+                    justifyContent={"space-around"}
+                  >
+                    {
+                      //@ts-ignore
+                      pokemonDetails?.types?.map((type: any) => (
+                        <Image
+                          key={type.slot}
+                          src={`/icons/${type.type.name}.svg`}
+                          className="rounded-sm object-cover md:rounded"
+                          quality={75}
+                          placeholder="empty"
+                          alt={type.type.name}
+                          loading="lazy"
+                          width={15}
+                          height={15}
+                          priority={false}
+                          title={type.type.name}
+                        />
+                      ))
+                    }
+                  </Box>
+                </Box>
+              </CardContent>
+            ) : (
               <Skeleton
                 sx={{ bgcolor: "darkpurple" }}
                 variant="rectangular"
                 width={312}
                 height={312}
               />
-            </StyledCard>
-          </Box>
-        </Link>
-      </Grid>
-    );
-  }
-
-  return (
-    <Grid item display={"flex"} justifyContent={"center"}>
-      <Link href={`/pokemon-details?name=${queryParam}`}>
-        <Box width={312}>
-          <StyledCard>
-            <CardContent>
-              <Typography
-                variant="h5"
-                textAlign="center"
-                fontWeight={600}
-                color={"white"}
-              >
-                {capitalize(pokemon.name)}
-              </Typography>
-              <StyledImageDiv>
-                <StyledImage
-                  //@ts-ignore
-                  src={pokemonDetails.sprites.other.dream_world.front_default}
-                  width={182}
-                  height={138}
-                  alt="Card Image"
-                />
-              </StyledImageDiv>
-              <Box
-                display="flex"
-                justifyContent="center"
-                sx={{ cursor: "pointer" }}
-              >
-                <Box
-                  borderRadius={16}
-                  width={75}
-                  border={1}
-                  borderColor={"white"}
-                  p={1}
-                  display={"flex"}
-                  alignItems={"center"}
-                  justifyContent={"space-around"}
-                >
-                  {
-                    //@ts-ignore
-                  pokemonDetails?.types?.map((type: any) => (
-                    <Image
-                      key={type.slot}
-                      src={`/icons/${type.type.name}.svg`}
-                      className="rounded-sm object-cover md:rounded"
-                      quality={75}
-                      placeholder="empty"
-                      alt={type.type.name}
-                      loading="lazy"
-                      width={15}
-                      height={15}
-                      priority={false}
-                      title={type.type.name}
-                    />
-                  ))}
-                </Box>
-              </Box>
-            </CardContent>
+            )}
           </StyledCard>
         </Box>
       </Link>

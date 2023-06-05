@@ -6,7 +6,6 @@ import { PokemonDetails } from "@/type";
 import Types from "./Types";
 import LoadingAnimation from "../Loading";
 import Description from "./Description";
-import Moves from "./Moves";
 import PokemonChart from "./Chart";
 
 interface DetailsProps {
@@ -40,7 +39,7 @@ function Details({ pokemonDetails }: DetailsProps) {
     <>
       {Object.keys(pokemonDetails).length !== 0 ? (
         <Container maxWidth="lg">
-          <GridContainer container>
+          <GridContainer container display="flex" justifyContent={"center"}>
             <StyledItemImage
               p={3}
               display="flex"
@@ -61,23 +60,18 @@ function Details({ pokemonDetails }: DetailsProps) {
             </StyledItemImage>
             <StyleGridItem
               sm={12}
-              md={4}
+              md={6}
               item
             >
               <Description name={pokemonDetails.name} />
             </StyleGridItem>
             <StyleGridItem
               sm={12}
-              md={4}
+              md={6}
               item
             >
               <PokemonChart pokemonDetails={pokemonDetails} />
             </StyleGridItem>
-            <StyleGridItem
-              sm={12}
-              md={4}
-              item
-            ></StyleGridItem>
           </GridContainer>
         </Container>
       ) : (

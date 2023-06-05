@@ -1,6 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import pokemonuiLogo from '../../public/pokemon-ui-logo.svg';
 import Image from 'next/image';
 
 function Header() {

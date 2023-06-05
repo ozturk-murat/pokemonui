@@ -1,7 +1,11 @@
 "use client";
 import React, { useEffect } from "react";
-import { styled } from "@mui/material";
+
+//Material-UI
+import styled from "@mui/material/styles/styled";
 import Details from "../components/Details/Details";
+
+//Utils
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../redux/store";
 import {
@@ -9,6 +13,10 @@ import {
   fetchPokemonDetails,
 } from "../redux/features/apiSlice";
 import { PokemonDetails } from "@/type";
+
+//Components
+import BackButton from "../components/Details/Back";
+import Link from "next/link";
 
 const StyledMain = styled("div")(({}) => ({
   display: "flex",
@@ -39,6 +47,9 @@ function PokemonList() {
 
   return (
     <StyledMain>
+      <Link href={"/pokemon-list"}>
+      <BackButton/>
+      </Link>
       <Details pokemonDetails={pokemonDetails} />
     </StyledMain>
   );

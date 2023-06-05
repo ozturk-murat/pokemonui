@@ -1,6 +1,11 @@
 import React from "react";
+
+//Material-UI
+import Grid from "@mui/material/Grid";
+import styled from "@mui/material/styles/styled";
+
+//Components
 import Image from "next/image";
-import { Box, Grid, styled } from "@mui/material";
 
 const icons = [
   { id: 1, name: "bug", icon: "bug.svg" },

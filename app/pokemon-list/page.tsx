@@ -1,10 +1,19 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { Box, Grid, Pagination, styled } from "@mui/material";
+
+//Material-UI
+import Box from "@mui/material/Box";
+import Grid from "@mui/material/Grid";
+import Pagination from "@mui/material/Pagination";
+import styled from "@mui/material/styles/styled";
 import Card from "../components/Card";
+
+//Utils
 import { useDispatch, useSelector } from "react-redux";
 import { fetchPokemons } from "../redux/features/apiSlice";
 import { AppDispatch, RootState } from "../redux/store";
+
+//Components
 import LoadingAnimation from "../components/Loading";
 
 const StyledMain = styled("div")(({}) => ({
@@ -74,7 +83,7 @@ function PokemonList() {
         )}
       </Grid>
     </StyledMain>
-  );  
+  );
 }
 
 export default PokemonList;
