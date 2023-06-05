@@ -13,10 +13,12 @@ import CardContent from "@mui/material/CardContent";
 //Components
 import Link from "next/link";
 import Image from "next/image";
+import { PokemonDetails } from "@/type";
 
 interface Pokemon {
   name: string;
   url: string;
+  types: string;
 }
 
 interface CardProps {
@@ -68,7 +70,7 @@ const StyledCard = styled(Card)(({}) => ({
 }));
 
 function PokeCard({ pokemon }: CardProps) {
-  const [pokemonDetails, setPokemonDetails] = useState(null);
+  const [pokemonDetails, setPokemonDetails] = useState<PokemonDetails | null>(null);
   const [queryParam, setQueryParam] = useState("pikachu");
 
   useEffect(() => {
@@ -102,7 +104,6 @@ function PokeCard({ pokemon }: CardProps) {
                 </Typography>
                 <StyledImageDiv>
                   <StyledImage
-                    //@ts-ignore
                     src={pokemonDetails.sprites.other.dream_world.front_default}
                     width={182}
                     height={138}
@@ -125,7 +126,6 @@ function PokeCard({ pokemon }: CardProps) {
                     justifyContent={"space-around"}
                   >
                     {
-                      //@ts-ignore
                       pokemonDetails?.types?.map((type: any) => (
                         <Image
                           key={type.slot}

@@ -23,11 +23,7 @@ export interface PokemonDetails {
   };
   weight: number;
   height: number;
-  types: {
-    type: {
-      name: string;
-    };
-  }[];
+  types: { slot: number; type: { name: string } }[];
 }
 
 export interface PokemonSpecies {
