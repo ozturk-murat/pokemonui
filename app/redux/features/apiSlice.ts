@@ -21,7 +21,7 @@ const initialState: ApiState = {
   pokemonSpecies: [],
 };
 
-const baseUrl = "https://pokeapi.co/api/v2/";
+const baseUrl = process.env.NEXT_PUBLIC_API_URL
 
 export const fetchPokemons = createAsyncThunk(
   "api/fetchPokemons",
