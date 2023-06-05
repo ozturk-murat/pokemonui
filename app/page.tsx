@@ -26,6 +26,7 @@ const ButtonDiscover = styled(Button)(({theme}) => ({
   margin: "0 20px",
   border: "1px solid white",
   borderRadius: "40px",
+  lineHeight: "1",
   fontSize: "1.75rem",
   fontWeight: "600",
   color: "white",

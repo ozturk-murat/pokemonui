@@ -61,7 +61,7 @@ function Details({ pokemonDetails }: DetailsProps) {
             <StyleGridItem sm={12} md={6} item>
               <Description name={pokemonDetails.name} />
             </StyleGridItem>
-            <StyleGridItem sm={12} md={6} item>
+            <StyleGridItem item sm={12} md={6} mr={2}>
               <PokemonChart pokemonDetails={pokemonDetails} />
             </StyleGridItem>
           </GridContainer>
