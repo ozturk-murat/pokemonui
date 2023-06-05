@@ -35,7 +35,7 @@ function PokemonList() {
 
   useEffect(() => {
     dispatch(fetchPokemons({ limit, offset }));
-  }, [limit, offset]);
+  }, [dispatch, limit, offset]);
 
   const handleChangePage = (
     event: React.ChangeEvent<unknown>,

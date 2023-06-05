@@ -26,7 +26,7 @@ function Description({ name }: PokemonNameProps) {
     return () => {
       dispatch(clearPokemonDetails());
     };
-  }, []);
+  }, [dispatch, name]);
 
   const createSummary = () => {
     const entries = pokemonSpecies.flavor_text_entries;

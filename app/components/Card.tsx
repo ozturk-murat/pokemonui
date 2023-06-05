@@ -16,7 +16,7 @@ import Image from "next/image";
 import { PokemonDetails } from "@/type";
 
 interface CardProps {
-  pokemon: PokemonDetails;
+  pokemon: { name: string; url: string };
 }
 
 const icons = [

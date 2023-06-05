@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 //Material-UI
 import styled from "@mui/material/styles/styled";
@@ -30,20 +30,22 @@ const StyledMain = styled("div")(({}) => ({
 
 function PokemonList() {
   const dispatch: AppDispatch = useDispatch();
+  const [pokemonName, setPokemonName] = useState<string | null>(null);
+
   const pokemonDetails = useSelector(
     (state: RootState) => state.pokemon.pokemonDetails
   ) as unknown as PokemonDetails;
 
   useEffect(() => {
     const url = new URL(window.location.href);
-    const name = url.searchParams.get("name");
-    if (name) {
-      dispatch(fetchPokemonDetails(name));
+    const pokemonName = url.searchParams.get("name");
+    if (pokemonName) {
+      dispatch(fetchPokemonDetails(pokemonName));
     }
     return () => {
       dispatch(clearPokemonDetails());
     };
-  }, []);
+  }, [dispatch, pokemonName]);
 
   return (
     <StyledMain>
